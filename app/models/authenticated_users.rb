@@ -1,0 +1,2 @@
+class AuthenticatedUsers < ApplicationRecord
+end

@@ -7,6 +7,7 @@
 node_modules/
 dist/
 
+
 # Compiled Java class files
 *.class
 
@@ -48,3 +49,17 @@ Thumbs.db
 *.mov
 *.wmv
 
+config/parameters.yml
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+/lib/assets/*
+!/tasks/.keep
+/lib/tasks/*
+!/assets/.keep
+/bin
