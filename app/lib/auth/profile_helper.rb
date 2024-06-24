@@ -3,7 +3,7 @@ module Auth
     def change_public_info(data)
       begin
         insert_data, user_id = insert_profile_info(data)
-        Caspio::Client.instance.update_users_info(insert_data, user_id)
+        HayServices::RequestManagerService.update_users_info(insert_data, user_id)
         return {
           json: data,
           status: 200
