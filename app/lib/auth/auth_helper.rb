@@ -8,9 +8,10 @@ module Auth
     end
 
     def auth(email, password)
-      resp = Caspio::Client.instance.get_authentication(email)
+      resp = HayServices::RequestManagerService.get_authentication(email)
       return { json: 'Wrong credentials'.to_json, status: 401 } if resp[:status] != 200
       user = resp[:data].first
+      p hash_password(password)
       if hash_password(password) == user[:password]
         token_data = generate_token(email)
         AuthenticatedUsers.create(

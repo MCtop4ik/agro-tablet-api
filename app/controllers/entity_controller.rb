@@ -5,7 +5,7 @@ class EntityController < ApplicationController
       status: 500
     }
     if authenticate
-      service_data = Caspio::Client.instance.get_hay_farms
+      service_data = HayServices::RequestManagerService.get_hay_farms
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
     end
@@ -18,7 +18,7 @@ class EntityController < ApplicationController
       status: 500
     }
     if authenticate
-      service_data = Caspio::Client.instance.get_hay_fields
+      service_data = HayServices::RequestManagerService.get_hay_fields
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
     end
@@ -31,7 +31,7 @@ class EntityController < ApplicationController
       status: 500
     }
     if authenticate
-      service_data = Caspio::Client.instance.get_hay_types
+      service_data = HayServices::RequestManagerService.get_hay_types
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
     end
@@ -44,7 +44,7 @@ class EntityController < ApplicationController
       status: 500
     }
     if authenticate
-      service_data = Caspio::Client.instance.get_hay_cuts
+      service_data = HayServices::RequestManagerService.get_hay_cuts
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
     end
@@ -57,7 +57,7 @@ class EntityController < ApplicationController
       status: 500
     }
     if authenticate
-      service_data = Caspio::Client.instance.get_time_hours
+      service_data = HayServices::RequestManagerService.get_time_hours
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
     end
@@ -71,7 +71,7 @@ class EntityController < ApplicationController
       status: 500
     }
     if authenticate
-      service_data = Caspio::Client.instance.get_time_minutes
+      service_data = HayServices::RequestManagerService.get_time_minutes
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
     end

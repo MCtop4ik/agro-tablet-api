@@ -23,9 +23,9 @@ class SynchronisationQueueJob < ApplicationJob
   def send_on_server(element, user_data, query)
       case query
       when :create_production_transaction then
-        Caspio::Client.instance.create_production_transactions(element)
+        HayServices::RequestManagerService.create_production_transactions(element)
       when :update_production_transaction then
-        Caspio::Client.instance.update_production_transactions(element)
+        HayServices::RequestManagerService.update_production_transactions(element)
       else
         raise NameError
       end

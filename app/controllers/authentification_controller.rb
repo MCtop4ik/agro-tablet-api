@@ -27,8 +27,7 @@ class AuthentificationController < ApplicationController
     insert_data = {
       'Password': hash_password(new_password)
     }
-    p insert_data
-    Caspio::Client.instance.update_users_info(insert_data, user_id)
+    HayServices::RequestManagerService.update_users_info(insert_data, user_id)
     render json: 'Success'
   end
 end

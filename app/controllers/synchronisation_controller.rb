@@ -6,9 +6,6 @@ class SynchronisationController < ApplicationController
       insert_data = params[:synchronisation_data]
       user_data = params[:user_data]
       SynchronisationQueueJob.perform_later(insert_data, user_data)
-      p '________'
-      p insert_data
-      p '________'
       data = 'synchronisation succeeded'
       status = 200
     else
