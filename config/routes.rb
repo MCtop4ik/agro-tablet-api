@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get "v1/hay-cuts", to: "entity#get_hay_cuts"
   get "v1/time-hours", to: "entity#get_time_hours"
   get "v1/time-minutes", to: "entity#get_time_minutes"
+  resources :hay_production_transactions, only: [:index]
 
 end

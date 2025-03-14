@@ -1,0 +1,3 @@
+class HayFarms < ApplicationRecord
+
+end

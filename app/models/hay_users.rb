@@ -1,0 +1,2 @@
+class HayUsers < ApplicationRecord
+end

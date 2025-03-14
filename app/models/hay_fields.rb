@@ -1,0 +1,2 @@
+class HayFields < ApplicationRecord
+end

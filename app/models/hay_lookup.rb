@@ -1,0 +1,2 @@
+class HayLookup < ApplicationRecord
+end

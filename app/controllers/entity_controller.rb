@@ -4,11 +4,11 @@ class EntityController < ApplicationController
       data: {},
       status: 500
     }
-    if authenticate
+    # if authenticate
       service_data = HayServices::RequestManagerService.get_hay_farms
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
-    end
+    # end
     render json: result[:data].to_json, status: result[:status]
   end
 
@@ -17,11 +17,11 @@ class EntityController < ApplicationController
       data: {},
       status: 500
     }
-    if authenticate
+    # if authenticate
       service_data = HayServices::RequestManagerService.get_hay_fields
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
-    end
+    # end
     render json: result[:data].to_json, status: result[:status]
   end
 
@@ -30,11 +30,11 @@ class EntityController < ApplicationController
       data: {},
       status: 500
     }
-    if authenticate
+    # if authenticate
       service_data = HayServices::RequestManagerService.get_hay_types
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
-    end
+    # end
     render json: result[:data].to_json, status: result[:status]
   end
 
@@ -43,11 +43,11 @@ class EntityController < ApplicationController
       data: {},
       status: 500
     }
-    if authenticate
+    # if authenticate
       service_data = HayServices::RequestManagerService.get_hay_cuts
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
-    end
+    # end
     render json: result[:data].to_json, status: result[:status]
   end
 
@@ -56,11 +56,11 @@ class EntityController < ApplicationController
       data: {},
       status: 500
     }
-    if authenticate
+    # if authenticate
       service_data = HayServices::RequestManagerService.get_time_hours
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
-    end
+    # end
     render json: result[:data].to_json, status: result[:status]
   end
 
@@ -70,11 +70,11 @@ class EntityController < ApplicationController
       data: {},
       status: 500
     }
-    if authenticate
+    # if authenticate
       service_data = HayServices::RequestManagerService.get_time_minutes
       result[:data] = service_data[:data]
       result[:status] = service_data[:status]
-    end
+    # end
     render json: result[:data].to_json, status: result[:status]
   end
 

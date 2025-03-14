@@ -3,13 +3,16 @@
 module Caspio
   class CaspioQuery < Token
 
+    URL = 'http://127.0.0.1:5000/'
+
     def get(source_type, source, transform_row_func, query=nil)
       result = {
         success: true,
         data: nil,
         status: 200
       }
-      token = get_token
+      # token = get_token
+      token = JSON.parse('{"token_type": "Bearer", "access_token": "test"}', object_class: OpenStruct)
       header = {
         'Authorization' => "#{token.token_type} #{token.access_token}"
       }
@@ -22,7 +25,7 @@ module Caspio
       # p "https://#{BRIDGE}.caspio.com/rest/v2/#{source_type}s/#{source}/records?response=rows?q.pageNumber=#{page}&q.pageSize=1000#{query}"
       loop do
         resp = RestClient.get(
-          "https://#{BRIDGE}.caspio.com/rest/v2/#{source_type}s/#{source}/records?response=rows?q.pageNumber=#{page}&q.pageSize=1000#{query}",
+          "#{URL}#{source_type}s/#{source}/records?response=rows?q.pageNumber=#{page}&q.pageSize=1000#{query}",
           header
         )
         if 200 <= resp.code and resp.code <= 299
@@ -50,17 +53,18 @@ module Caspio
         data: nil,
         status: 500
       }
-      token = get_token
+      # token = get_token
+      token = JSON.parse('{"token_type": "Bearer", "access_token": "test"}', object_class: OpenStruct)
       header = {
         'Authorization' => "#{token.token_type} #{token.access_token}",
         'Content-Type' => "application/json"
       }
       p '___________'
-      p "https://#{BRIDGE}.caspio.com/rest/v2/#{source_type}s/#{source}/records?response=rows"
+      p "#{URL}rest/v2/#{source_type}s/#{source}/records?response=rows"
       p insert_data.to_json
       p header
       resp = RestClient.post(
-        "https://#{BRIDGE}.caspio.com/rest/v2/#{source_type}s/#{source}/records?response=rows",
+        "#{URL}rest/v2/#{source_type}s/#{source}/records?response=rows",
         insert_data.to_json,
         header
       )
@@ -79,7 +83,8 @@ module Caspio
         data: nil,
         status: 500
       }
-      token = get_token
+      # token = get_token
+      token = JSON.parse('{"token_type": "Bearer", "access_token": "test"}', object_class: OpenStruct)
       header = {
         'Authorization' => "#{token.token_type} #{token.access_token}",
         'Content-Type' => "application/json"
@@ -93,7 +98,7 @@ module Caspio
       p insert_data.to_json
       p header
       resp = RestClient.put(
-        "https://#{BRIDGE}.caspio.com/rest/v2/#{source_type}s/#{source}/records?response=rows&#{query}",
+        "#{URL}rest/v2/#{source_type}s/#{source}/records?response=rows&#{query}",
         insert_data.to_json,
         header
       )

@@ -10,12 +10,11 @@ module Auth
     def auth(email, password)
       resp = HayServices::RequestManagerService.get_authentication(email)
       return { json: 'Wrong credentials'.to_json, status: 401 } if resp[:status] != 200
-      user = resp[:data].first
-      p hash_password(password)
-      if hash_password(password) == user[:password]
+      user = resp[:data]
+      if hash_password(password) == user["password_digest"]
         token_data = generate_token(email)
         AuthenticatedUsers.create(
-          :user_id => user[:user_id],
+          :user_id => user["user_id"],
           :token => token_data[:token],
           :expire_time => token_data[:expire_time])
         {
@@ -25,11 +24,11 @@ module Auth
               expire_time: token_data[:expire_time],
             },
             user_info: {
-              user_id: user[:user_id],
-              first_name: user[:first_name],
-              last_name: user[:last_name],
+              user_id: user["user_id"],
+              first_name: user["first_name"],
+              last_name: user["last_name"],
               email: email,
-              record_pk: user[:record_pk]
+              record_pk: user["record_pk"]
             }
           }.to_json,
           status: 200

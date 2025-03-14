@@ -1,0 +1,76 @@
+<table border="1">
+  <thead>
+    <tr>
+      <th>Record PK</th>
+      <th>Channel KW</th>
+      <th>Sequence</th>
+      <th>Active Y/N</th>
+      <th>Field FK</th>
+      <th>User FK</th>
+      <th>Transaction Date</th>
+      <th>Hay Type KW</th>
+      <th>Hay Cut KW</th>
+      <th>Start Hours KW</th>
+      <th>Start Minutes KW</th>
+      <th>End Hours KW</th>
+      <th>End Minutes KW</th>
+      <th>Total Time Hours</th>
+      <th>Tons Baled</th>
+      <th>Bales Baled</th>
+      <th>Average Moisture Percent</th>
+      <th>Acres</th>
+      <th>Tons per Acre</th>
+      <th>Bales per Acre</th>
+      <th>Tons per Hour</th>
+      <th>Bales per Hour</th>
+      <th>Add User PK</th>
+      <th>Add User Name</th>
+      <th>Add Date Time</th>
+      <th>Add IP</th>
+      <th>Add Browser</th>
+      <th>Upd User FK</th>
+      <th>Upd User Name</th>
+      <th>Upd Date Time</th>
+      <th>Upd IP</th>
+      <th>Upd Browser</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction['record_pk'] %></td>
+        <td><%= transaction['channel_kw'] %></td>
+        <td><%= transaction['sequence'] %></td>
+        <td><%= transaction['active_yn'] %></td>
+        <td><%= transaction['field_fk'] %></td>
+        <td><%= transaction['user_fk'] %></td>
+        <td><%= transaction['transaction_date'] %></td>
+        <td><%= transaction['hay_type_kw'] %></td>
+        <td><%= transaction['hay_cut_kw'] %></td>
+        <td><%= transaction['start_hours_kw'] %></td>
+        <td><%= transaction['start_minutes_kw'] %></td>
+        <td><%= transaction['end_hours_kw'] %></td>
+        <td><%= transaction['end_minutes_kw'] %></td>
+        <td><%= transaction['total_time_hours'] %></td>
+        <td><%= transaction['tons_baled'] %></td>
+        <td><%= transaction['bales_baled'] %></td>
+        <td><%= transaction['average_moisture_percent'] %></td>
+        <td><%= transaction['acres'] %></td>
+        <td><%= transaction['tons_per_acre'] %></td>
+        <td><%= transaction['bales_per_acre'] %></td>
+        <td><%= transaction['tons_per_hour'] %></td>
+        <td><%= transaction['bales_per_hour'] %></td>
+        <td><%= transaction['add_user_pk'] %></td>
+        <td><%= transaction['add_user_name'] %></td>
+        <td><%= transaction['add_date_time'] %></td>
+        <td><%= transaction['add_ip'] %></td>
+        <td><%= transaction['add_browser'] %></td>
+        <td><%= transaction['upd_user_fk'] %></td>
+        <td><%= transaction['upd_user_name'] %></td>
+        <td><%= transaction['upd_date_time'] %></td>
+        <td><%= transaction['upd_ip'] %></td>
+        <td><%= transaction['upd_browser'] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

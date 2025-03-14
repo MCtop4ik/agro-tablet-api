@@ -1,6 +1,7 @@
 class SynchronisationController < ApplicationController
   def synchronisation
     auth_token = request.headers["Authorization"]
+    p params[:synchronisation_data]
     if Auth::AccessControl.new.is_authenticated(auth_token) || true
       params.permit!
       insert_data = params[:synchronisation_data]

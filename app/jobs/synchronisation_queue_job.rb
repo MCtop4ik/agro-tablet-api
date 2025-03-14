@@ -21,6 +21,7 @@ class SynchronisationQueueJob < ApplicationJob
   end
 
   def send_on_server(element, user_data, query)
+      p element
       case query
       when :create_production_transaction then
         HayServices::RequestManagerService.create_production_transactions(element)
