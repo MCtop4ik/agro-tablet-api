@@ -1,11 +1,26 @@
 version: '3.8'
+
 services:
-  cache:
-    image: redis:6-alpine
+  web:
+    build: .
+    restart: always
     ports:
-      - '6379:6379'
+      - "3000:3000"
     volumes:
-      - cache:/data
+      - .:/app
+    command: ["rails", "server", "-b", "0.0.0.0"]
+
+  nginx:
+    image: nginx:latest
+    restart: always
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"  # Добавляем порт для HTTPS
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./ssl:/etc/nginx/ssl  # Монтируем директорию с сертификатами
+
 volumes:
-  cache:
-    driver: local
+  db_data:
